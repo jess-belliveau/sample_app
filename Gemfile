@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.6'
 
 gem 'sqlite3'
-
+gem 'guard-rspec'
 gem 'json'
 
 # Gems used only for assets and not required
@@ -21,3 +21,5 @@ gem 'jquery-rails'
 
 gem 'capybara'
 gem 'rspec-rails'
+gem 'rb-inotify'
+gem 'libnotify'
