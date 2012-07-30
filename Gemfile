@@ -22,5 +22,3 @@ gem 'jquery-rails'
 
 gem 'capybara'
 gem 'rspec-rails'
-gem 'rb-inotify'
-gem 'libnotify'
