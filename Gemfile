@@ -22,3 +22,5 @@ gem 'jquery-rails'
 
 gem 'capybara'
 gem 'rspec-rails'
+gem 'annotate'
+gem 'bcrypt-ruby'
