@@ -79,10 +79,15 @@ describe "Authentication" do
 		it { should have_selector('title', :text => 'Sign in') }
 
 		describe "with invalid information" do
+			let(:user) { FactoryGirl.create(:user) }
+
 			before { click_button 'Sign in' }
 
 			it { should have_selector('title', :text => 'Sign in') }
 			it { should have_selector('div.alert.alert-error', :text => 'Invalid') }
+
+			it { should_not have_link('Profile', :href => user_path(user)) }
+			it { should_not have_link('Settings', :href => edit_user_path(user)) }
 
 			describe "after visiting another page" do
 				before { click_link "Home" }
@@ -109,6 +114,9 @@ describe "Authentication" do
 			describe "followed by signout" do
 				before { click_link "Sign out" }
 				it { should have_link('Sign in') }
+
+				it { should_not have_link('Profile', :href => user_path(user)) }
+	            it { should_not have_link('Settings', :href => edit_user_path(user)) }
 			end
 		end
 	end
