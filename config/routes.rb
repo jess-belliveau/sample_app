@@ -2,7 +2,12 @@ SampleApp::Application.routes.draw do
 	root :to => 'static_pages#home'
 
 #	Users resources - allow all methods
-	resources :users
+	resources :users do
+		member do
+			get :following, :followers
+		end
+	end
+
 	match '/signup',  :to => 'users#new'
 
 #	Standard routes for static_pages
@@ -18,6 +23,9 @@ SampleApp::Application.routes.draw do
 
 #	Microposts resource
 	resources :microposts, :only => [:create, :destroy]
+
+#	Relations resource
+	resources :relationships, :only => [:create, :destroy]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
